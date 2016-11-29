@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-    namespace :api do
-    namespace :v1 do
-      resources :sandwiches do
-        resources :ingredients
-        post 'ingredients/add', to: 'sandwiches#add'
-      end
-    end
-   end
+
+resources :sandwiches, only: [:index, :show], controller: "sandwich_views"
+scope "/api" do
+    resources :sandwiches
+    resources :ingredients
+    post "/sandwiches/:id/ingredients/add" => "sandwiches#add_ingredient"
+end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
