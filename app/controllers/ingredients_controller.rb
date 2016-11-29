@@ -48,4 +48,7 @@ class IngredientsController < ApplicationController
 	  params.require(:ingredient)
 	    .permit(:name, :calories)
 	end
+	def ingredient_params 
+		params.require(:ingredient).permit(:name,:calories)
+	end
 end

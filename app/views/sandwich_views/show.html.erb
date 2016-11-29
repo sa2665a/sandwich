@@ -1,0 +1,21 @@
+<h1><%= @sandwich.name %></h1>
+<strong>Type of bread: </strong> <%= @sandwich.bread_type %>
+
+<ul>
+<h3>Ingredients of Sandwich</h3>
+<% @ingredients.each do |ingredient| %>
+	
+			<strong>Ingredient:</strong>
+			<li><%= ingredient.name%> <br></li>
+			<strong>Calories:</strong>
+			<li><%= ingredient.calories%></li> <br>
+		
+<% end %>
+
+</ul>
+
+<br>
+
+<% @ingredients.each do |ingredient| %>
+  <button data-id="<%= ingredient.id %>"><%= ingredient.name %></button>
+<% end %>

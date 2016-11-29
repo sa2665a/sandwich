@@ -40,7 +40,7 @@ class SandwichesController < ApplicationController
 	  end
 	  ingredient = Ingredient.find_by(id: params[:ingredient_id])
 	  sandwich.ingredients.push(ingredient)
-	  render json: ingredient
+	  render json: {sandwich:sandwich, ingredient: ingredient}
 	end
 
 	def destroy
